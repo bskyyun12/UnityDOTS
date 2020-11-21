@@ -6,8 +6,6 @@ using UnityEngine;
 public class FollowEntity : MonoBehaviour
 {
     public Entity entityToFollow;
-    public float3 postionOffset = float3.zero;
-    public quaternion rotationOffset = quaternion.identity;
 
     private EntityManager entityManager;
 
@@ -24,9 +22,9 @@ public class FollowEntity : MonoBehaviour
         }
 
         Translation entityPosition = entityManager.GetComponentData<Translation>(entityToFollow);
-        transform.position = entityPosition.Value + postionOffset;
+        transform.position = entityPosition.Value;
 
         Rotation entityRotation = entityManager.GetComponentData<Rotation>(entityToFollow);
-        transform.rotation = entityRotation.Value;//math.mul(entityRotation.Value, rotationOffset);
+        transform.rotation = entityRotation.Value;
     }
 }
