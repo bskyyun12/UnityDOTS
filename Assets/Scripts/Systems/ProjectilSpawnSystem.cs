@@ -18,7 +18,7 @@ public class ProjectilSpawnSystem : ComponentSystem
                     spawnTimer = weaponData.fireRate;
 
                     Entity spawnedProjectile = EntityManager.Instantiate(weaponData.projectilePrefab);
-                    EntityManager.SetComponentData(spawnedProjectile, new Translation { Value = translation.Value });
+                    EntityManager.SetComponentData(spawnedProjectile, new Translation { Value = new float3(translation.Value.x, 0f, translation.Value.z) });
                     EntityManager.SetComponentData(spawnedProjectile, new MoveData { moveDirection = GetFireDirection(), moveSpeed = GetProjectileSpeed(spawnedProjectile) });
                 }
             });

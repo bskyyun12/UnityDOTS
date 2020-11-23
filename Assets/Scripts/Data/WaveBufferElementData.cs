@@ -6,12 +6,13 @@ using Unity.Mathematics;
 [GenerateAuthoringComponent]
 public struct WaveBufferElementData : IBufferElementData
 {
-    public WaveInfo wave;
+    public WaveInfo Value;
 }
 
 [Serializable]
 public struct WaveInfo
 {
-    public int test1;
-    public int test2;
+    public float secondsBetweenSpawns;
+    public int totalAmountToSpawn;
+    public int spawnAmountAtATime;
 }

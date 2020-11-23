@@ -20,6 +20,7 @@ public class EnemyRotationSystem : SystemBase
                 Translation targetPosition = translationGroup[targetData.targetEntity];
 
                 float3 directionToTarget = targetPosition.Value - translation.Value;
+                directionToTarget.y = 0f;
 
                 quaternion targetRotation = quaternion.LookRotationSafe(directionToTarget, math.up());
                 rotation.Value = math.slerp(rotation.Value, targetRotation, moveData.turnSpeed);
